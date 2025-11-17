@@ -109,11 +109,12 @@ background: linear-gradient(135deg, #色1 0%, #色2 100%);
 ├── styles.css        # スタイルシート
 ├── script.js         # JavaScript
 ├── package.json      # プロジェクト設定
+├── vercel.json       # Vercel設定（出力ディレクトリ指定）
 ├── .gitignore        # Git除外ファイル
 └── README.md         # このファイル
 ```
 
-**注意**: 静的サイトなので`vercel.json`は不要です。Vercelが自動的に検出してデプロイします。
+**注意**: `vercel.json`でルートディレクトリ（`.`）を出力ディレクトリとして指定しています。HTMLファイル内のリソースパスは絶対パス（`/`から始まる）を使用しています。
 
 ### 自動デプロイ
 - GitHubリポジトリにプッシュすると自動的に再デプロイされます
