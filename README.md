@@ -73,6 +73,57 @@ background: linear-gradient(135deg, #色1 0%, #色2 100%);
 - Safari
 - Edge
 
+## 🚢 Vercelへのデプロイ
+
+このプロジェクトはVercelへ簡単にデプロイできます。
+
+### 前提条件
+- GitHubアカウント
+- Vercelアカウント（[vercel.com](https://vercel.com)で無料作成可能）
+
+### デプロイ手順
+
+1. **リポジトリの準備**
+   - このプロジェクトをGitHubリポジトリにプッシュ済み
+
+2. **Vercelへのデプロイ**
+   - [Vercel](https://vercel.com)にログイン
+   - 「Add New Project」をクリック
+   - GitHubリポジトリを選択
+   - プロジェクト設定:
+     - **Framework Preset**: Other
+     - **Root Directory**: `./`（デフォルト）
+     - **Build Command**: 空白（静的サイトのため不要）
+     - **Output Directory**: `./`（デフォルト）
+   - 「Deploy」ボタンをクリック
+
+3. **デプロイ完了**
+   - 数秒でデプロイが完了します
+   - Vercelが自動生成したURLでサイトにアクセス可能
+   - カスタムドメインの設定も可能
+
+### ファイル構成（Vercel用）
+```
+.
+├── index.html        # メインHTMLファイル
+├── styles.css        # スタイルシート
+├── script.js         # JavaScript
+├── package.json      # プロジェクト設定
+├── vercel.json       # Vercel設定（出力ディレクトリ指定）
+├── .gitignore        # Git除外ファイル
+└── README.md         # このファイル
+```
+
+**注意**: `vercel.json`でルートディレクトリ（`.`）を出力ディレクトリとして指定しています。HTMLファイル内のリソースパスは絶対パス（`/`から始まる）を使用しています。
+
+### 自動デプロイ
+- GitHubリポジトリにプッシュすると自動的に再デプロイされます
+- ブランチごとにプレビュー環境が自動生成されます
+
+### トラブルシューティング
+- デプロイに失敗した場合は、Vercelのログを確認してください
+- すべてのファイル（HTML, CSS, JS）が正しくコミットされているか確認してください
+
 ## 💝 クレジット
 
 - デザインインスピレーション: [v0 by Vercel](https://v0.dev/)

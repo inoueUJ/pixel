@@ -1,0 +1,23 @@
+{
+  "name": "birthday-surprise-lp",
+  "version": "1.0.0",
+  "description": "An interactive birthday surprise landing page with treasure chest animation",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo 'No build step required for static site'"
+  },
+  "keywords": [
+    "birthday",
+    "landing-page",
+    "animation",
+    "treasure-chest",
+    "surprise"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}

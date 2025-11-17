@@ -1,94 +1,26 @@
-// Screen management
-let currentScreen = 'welcome';
-
-function showScreen(screenId) {
-    // Hide all screens
-    document.querySelectorAll('.screen').forEach(screen => {
-        screen.classList.remove('active');
-    });
-
-    // Show target screen
-    setTimeout(() => {
-        document.getElementById(screenId).classList.add('active');
-        currentScreen = screenId;
-    }, 100);
-}
-
-// Start button - Begin countdown
-document.getElementById('startBtn').addEventListener('click', () => {
-    showScreen('countdown');
-    startCountdown();
-});
-
-// Countdown functionality
-function startCountdown() {
-    let count = 5;
-    const countdownElement = document.getElementById('countdownNumber');
-
-    const interval = setInterval(() => {
-        count--;
-        if (count > 0) {
-            countdownElement.textContent = count;
-            // Re-trigger animation
-            countdownElement.style.animation = 'none';
-            setTimeout(() => {
-                countdownElement.style.animation = 'countdownPulse 1s ease';
-            }, 10);
-        } else {
-            clearInterval(interval);
-            showScreen('birthday');
-            triggerConfetti();
-        }
-    }, 1000);
-}
-
-// Continue button - Go to treasure
-document.getElementById('continueBtn').addEventListener('click', () => {
-    showScreen('treasure');
-});
-
-// Treasure chest interaction
+// ===== Treasure Chest Interaction =====
 const treasureChest = document.getElementById('treasureChest');
-let chestOpened = false;
+let isChestOpen = false;
 
 treasureChest.addEventListener('click', () => {
-    if (!chestOpened) {
+    if (!isChestOpen) {
         treasureChest.classList.add('open');
-        chestOpened = true;
+        isChestOpen = true;
         triggerConfetti();
-
-        // Show messages button after chest opens
-        setTimeout(() => {
-            document.getElementById('messagesBtn').style.display = 'inline-block';
-        }, 1500);
     }
 });
 
-// Messages button
-document.getElementById('messagesBtn').addEventListener('click', () => {
-    showScreen('messages');
-    triggerConfetti();
-});
-
-// Restart button
-document.getElementById('restartBtn').addEventListener('click', () => {
-    // Reset chest
-    treasureChest.classList.remove('open');
-    chestOpened = false;
-    document.getElementById('messagesBtn').style.display = 'none';
-
-    // Reset countdown
-    document.getElementById('countdownNumber').textContent = '5';
-
-    // Go back to welcome
-    showScreen('welcome');
-});
-
-// Confetti functionality
+// ===== Confetti System =====
 const canvas = document.getElementById('confetti');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+
+// Set canvas size
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
 let confettiParticles = [];
 
@@ -96,19 +28,19 @@ class ConfettiParticle {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = -10;
-        this.size = Math.random() * 8 + 5;
+        this.size = Math.random() * 8 + 4;
         this.speedY = Math.random() * 3 + 2;
-        this.speedX = Math.random() * 2 - 1;
-        this.color = this.randomColor();
+        this.speedX = Math.random() * 4 - 2;
+        this.color = this.getRandomColor();
         this.rotation = Math.random() * 360;
         this.rotationSpeed = Math.random() * 10 - 5;
+        this.opacity = 1;
     }
 
-    randomColor() {
+    getRandomColor() {
         const colors = [
-            '#FF6B9D', '#C44569', '#FEA47F', '#F97F51',
-            '#58B19F', '#3B3B98', '#EAB543', '#F8B500',
-            '#FC427B', '#BDC581'
+            '#FF6B9D', '#FFA07A', '#FFB6C1', '#98D8C8', '#DDA0DD',
+            '#F0E68C', '#87CEEB', '#FFC0CB', '#FFD700', '#FF69B4'
         ];
         return colors[Math.floor(Math.random() * colors.length)];
     }
@@ -118,7 +50,13 @@ class ConfettiParticle {
         this.x += this.speedX;
         this.rotation += this.rotationSpeed;
 
-        if (this.y > canvas.height) {
+        // Fade out near bottom
+        if (this.y > canvas.height * 0.8) {
+            this.opacity -= 0.02;
+        }
+
+        // Remove if off screen
+        if (this.y > canvas.height || this.opacity <= 0) {
             return false;
         }
         return true;
@@ -126,6 +64,7 @@ class ConfettiParticle {
 
     draw() {
         ctx.save();
+        ctx.globalAlpha = this.opacity;
         ctx.translate(this.x, this.y);
         ctx.rotate((this.rotation * Math.PI) / 180);
         ctx.fillStyle = this.color;
@@ -135,11 +74,11 @@ class ConfettiParticle {
 }
 
 function triggerConfetti() {
-    // Create 100 confetti particles
-    for (let i = 0; i < 100; i++) {
+    const particleCount = 150;
+    for (let i = 0; i < particleCount; i++) {
         setTimeout(() => {
             confettiParticles.push(new ConfettiParticle());
-        }, i * 10);
+        }, i * 15);
     }
 }
 
@@ -157,46 +96,40 @@ function animateConfetti() {
 // Start confetti animation loop
 animateConfetti();
 
-// Handle window resize
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+// Trigger confetti on page load
+window.addEventListener('load', () => {
+    setTimeout(triggerConfetti, 500);
 });
 
-// Add shake effect to treasure chest on hover
-treasureChest.addEventListener('mouseenter', () => {
-    if (!chestOpened) {
-        treasureChest.style.animation = 'shake 0.5s ease';
-    }
-});
+// ===== Smooth Scroll for Scroll Indicator =====
+const scrollIndicator = document.querySelector('.scroll-indicator');
+if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', () => {
+        document.getElementById('letter').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+}
 
-treasureChest.addEventListener('animationend', () => {
-    treasureChest.style.animation = '';
-});
+// ===== Intersection Observer for Fade-In Animations =====
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
 
-// Add shake animation to CSS dynamically
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes shake {
-        0%, 100% { transform: translateX(0) scale(1.05); }
-        25% { transform: translateX(-10px) scale(1.05); }
-        75% { transform: translateX(10px) scale(1.05); }
-    }
-`;
-document.head.appendChild(style);
-
-// Hide messages button initially
-document.getElementById('messagesBtn').style.display = 'none';
-
-// Keyboard shortcuts (optional enhancement)
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        if (currentScreen === 'welcome') {
-            document.getElementById('startBtn').click();
-        } else if (currentScreen === 'birthday') {
-            document.getElementById('continueBtn').click();
-        } else if (currentScreen === 'treasure' && chestOpened) {
-            document.getElementById('messagesBtn').click();
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
         }
-    }
+    });
+}, observerOptions);
+
+// Observe message cards and letter elements
+document.querySelectorAll('.message-card, .letter-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    observer.observe(el);
 });
