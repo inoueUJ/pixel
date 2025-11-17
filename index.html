@@ -4,106 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday! 🎂</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Welcome Screen -->
-    <section id="welcome" class="screen active">
-        <div class="content">
-            <h1 class="fade-in">準備はいい？</h1>
-            <button id="startBtn" class="btn-primary">始めよう！</button>
+    <!-- Hero Section - Birthday Message -->
+    <section id="hero" class="hero-section">
+        <div class="balloons-container">
+            <div class="balloon" style="--delay: 0s; --left: 10%; --color: #FF6B9D;"></div>
+            <div class="balloon" style="--delay: 0.5s; --left: 25%; --color: #FFA07A;"></div>
+            <div class="balloon" style="--delay: 1s; --left: 50%; --color: #98D8C8;"></div>
+            <div class="balloon" style="--delay: 1.5s; --left: 75%; --color: #FFB6C1;"></div>
+            <div class="balloon" style="--delay: 2s; --left: 90%; --color: #DDA0DD;"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Happy Birthday!</h1>
+            <p class="hero-subtitle">あなたの特別な日おめでとう</p>
+            <div class="scroll-indicator">
+                <span>↓</span>
+            </div>
         </div>
     </section>
 
-    <!-- Countdown Screen -->
-    <section id="countdown" class="screen">
-        <div class="content">
-            <div id="countdownNumber" class="countdown-number">5</div>
-        </div>
-    </section>
+    <!-- Letter Section -->
+    <section id="letter" class="letter-section">
+        <div class="container">
+            <h2 class="section-title">あなたへの手紙</h2>
 
-    <!-- Birthday Message Screen -->
-    <section id="birthday" class="screen">
-        <div class="balloons">
-            <div class="balloon" style="--delay: 0s; --left: 10%;"></div>
-            <div class="balloon" style="--delay: 0.5s; --left: 30%;"></div>
-            <div class="balloon" style="--delay: 1s; --left: 50%;"></div>
-            <div class="balloon" style="--delay: 1.5s; --left: 70%;"></div>
-            <div class="balloon" style="--delay: 2s; --left: 90%;"></div>
-        </div>
-        <div class="content">
-            <h1 class="birthday-title">Happy Birthday!</h1>
-            <p class="birthday-subtitle">あなたの特別な日おめでとう！</p>
-            <button id="continueBtn" class="btn-primary">続ける</button>
-        </div>
-    </section>
+            <div class="letter-card">
+                <div class="letter-header">
+                    <span class="letter-date">2025年のあなたへ</span>
+                </div>
 
-    <!-- Treasure Chest Screen -->
-    <section id="treasure" class="screen">
-        <div class="content">
-            <h2 class="section-title">あなたへのプレゼント</h2>
-            <p class="section-subtitle">宝箱をクリックして開けてみて！</p>
+                <div class="letter-body">
+                    <p class="letter-text">
+                        いつもそばにいてくれてありがとう。<br>
+                        あなたの笑顔が僕の一番の幸せです。
+                    </p>
 
-            <div class="treasure-container">
-                <div id="treasureChest" class="treasure-chest">
-                    <div class="chest-lid">
-                        <div class="lid-top"></div>
-                        <div class="lid-front"></div>
-                    </div>
-                    <div class="chest-body">
-                        <div class="body-front"></div>
-                        <div class="body-back"></div>
-                        <div class="body-left"></div>
-                        <div class="body-right"></div>
-                        <div class="body-bottom"></div>
-                        <div class="lock"></div>
-                    </div>
+                    <p class="letter-text">
+                        これからもたくさんの思い出を作ろうね。<br>
+                        素敵な一年になりますように。
+                    </p>
 
-                    <!-- Gift inside the chest -->
-                    <div class="gift-content">
-                        <div class="gift-box">🎁</div>
-                        <p class="gift-text">あなたの大切な思い出と<br>これからの素敵な時間へ</p>
-                    </div>
+                    <p class="letter-text">
+                        大好きだよ、誕生日おめでとう！
+                    </p>
+                </div>
+
+                <div class="letter-footer">
+                    <p class="letter-signature">愛を込めて ❤️</p>
                 </div>
             </div>
 
-            <button id="messagesBtn" class="btn-secondary">メッセージを見る</button>
-        </div>
-    </section>
-
-    <!-- Messages Screen -->
-    <section id="messages" class="screen">
-        <div class="content">
-            <h2 class="section-title">あなたへのメッセージ</h2>
-
-            <div class="messages-container">
+            <!-- Message Cards -->
+            <div class="message-cards">
                 <div class="message-card">
-                    <div class="message-emoji">💖</div>
+                    <div class="message-icon">💖</div>
                     <p>いつもそばにいてくれてありがとう</p>
                 </div>
 
                 <div class="message-card">
-                    <div class="message-emoji">🌟</div>
+                    <div class="message-icon">🌟</div>
                     <p>あなたの笑顔が僕の一番の幸せです</p>
                 </div>
 
                 <div class="message-card">
-                    <div class="message-emoji">🎈</div>
+                    <div class="message-icon">🎈</div>
                     <p>これからもたくさんの思い出を作ろうね</p>
                 </div>
 
                 <div class="message-card">
-                    <div class="message-emoji">✨</div>
+                    <div class="message-icon">✨</div>
                     <p>素敵な一年になりますように</p>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="message-card">
-                    <div class="message-emoji">❤️</div>
-                    <p>大好きだよ、誕生日おめでとう！</p>
+    <!-- Gift Section -->
+    <section id="gift" class="gift-section">
+        <div class="container">
+            <h2 class="section-title">あなたへのプレゼント</h2>
+            <p class="section-subtitle">宝箱をクリックして開けてみて</p>
+
+            <div class="treasure-wrapper">
+                <div id="treasureChest" class="treasure-chest">
+                    <!-- Chest Lid -->
+                    <div class="chest-lid">
+                        <div class="lid-top"></div>
+                    </div>
+
+                    <!-- Chest Body -->
+                    <div class="chest-body">
+                        <div class="chest-front"></div>
+                        <div class="chest-lock"></div>
+                    </div>
+
+                    <!-- Gift Content -->
+                    <div class="gift-content">
+                        <div class="gift-icon">🎁</div>
+                        <p class="gift-message">あなたの大切な思い出と<br>これからの素敵な時間へ</p>
+                    </div>
                 </div>
             </div>
-
-            <button id="restartBtn" class="btn-primary">もう一度見る</button>
         </div>
     </section>
 
