@@ -108,11 +108,12 @@ background: linear-gradient(135deg, #色1 0%, #色2 100%);
 ├── index.html        # メインHTMLファイル
 ├── styles.css        # スタイルシート
 ├── script.js         # JavaScript
-├── vercel.json       # Vercel設定ファイル
 ├── package.json      # プロジェクト設定
 ├── .gitignore        # Git除外ファイル
 └── README.md         # このファイル
 ```
+
+**注意**: 静的サイトなので`vercel.json`は不要です。Vercelが自動的に検出してデプロイします。
 
 ### 自動デプロイ
 - GitHubリポジトリにプッシュすると自動的に再デプロイされます
