@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! 🎂</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <section id="welcome" class="screen active">
+        <div class="content">
+            <h1 class="fade-in">準備はいい？</h1>
+            <button id="startBtn" class="btn-primary">始めよう！</button>
+        </div>
+    </section>
+
+    <!-- Countdown Screen -->
+    <section id="countdown" class="screen">
+        <div class="content">
+            <div id="countdownNumber" class="countdown-number">5</div>
+        </div>
+    </section>
+
+    <!-- Birthday Message Screen -->
+    <section id="birthday" class="screen">
+        <div class="balloons">
+            <div class="balloon" style="--delay: 0s; --left: 10%;"></div>
+            <div class="balloon" style="--delay: 0.5s; --left: 30%;"></div>
+            <div class="balloon" style="--delay: 1s; --left: 50%;"></div>
+            <div class="balloon" style="--delay: 1.5s; --left: 70%;"></div>
+            <div class="balloon" style="--delay: 2s; --left: 90%;"></div>
+        </div>
+        <div class="content">
+            <h1 class="birthday-title">Happy Birthday!</h1>
+            <p class="birthday-subtitle">あなたの特別な日おめでとう！</p>
+            <button id="continueBtn" class="btn-primary">続ける</button>
+        </div>
+    </section>
+
+    <!-- Treasure Chest Screen -->
+    <section id="treasure" class="screen">
+        <div class="content">
+            <h2 class="section-title">あなたへのプレゼント</h2>
+            <p class="section-subtitle">宝箱をクリックして開けてみて！</p>
+
+            <div class="treasure-container">
+                <div id="treasureChest" class="treasure-chest">
+                    <div class="chest-lid">
+                        <div class="lid-top"></div>
+                        <div class="lid-front"></div>
+                    </div>
+                    <div class="chest-body">
+                        <div class="body-front"></div>
+                        <div class="body-back"></div>
+                        <div class="body-left"></div>
+                        <div class="body-right"></div>
+                        <div class="body-bottom"></div>
+                        <div class="lock"></div>
+                    </div>
+
+                    <!-- Gift inside the chest -->
+                    <div class="gift-content">
+                        <div class="gift-box">🎁</div>
+                        <p class="gift-text">あなたの大切な思い出と<br>これからの素敵な時間へ</p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="messagesBtn" class="btn-secondary">メッセージを見る</button>
+        </div>
+    </section>
+
+    <!-- Messages Screen -->
+    <section id="messages" class="screen">
+        <div class="content">
+            <h2 class="section-title">あなたへのメッセージ</h2>
+
+            <div class="messages-container">
+                <div class="message-card">
+                    <div class="message-emoji">💖</div>
+                    <p>いつもそばにいてくれてありがとう</p>
+                </div>
+
+                <div class="message-card">
+                    <div class="message-emoji">🌟</div>
+                    <p>あなたの笑顔が僕の一番の幸せです</p>
+                </div>
+
+                <div class="message-card">
+                    <div class="message-emoji">🎈</div>
+                    <p>これからもたくさんの思い出を作ろうね</p>
+                </div>
+
+                <div class="message-card">
+                    <div class="message-emoji">✨</div>
+                    <p>素敵な一年になりますように</p>
+                </div>
+
+                <div class="message-card">
+                    <div class="message-emoji">❤️</div>
+                    <p>大好きだよ、誕生日おめでとう！</p>
+                </div>
+            </div>
+
+            <button id="restartBtn" class="btn-primary">もう一度見る</button>
+        </div>
+    </section>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
