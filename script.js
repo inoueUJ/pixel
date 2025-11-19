@@ -1,15 +1,3 @@
-// ===== Treasure Chest Interaction =====
-const treasureChest = document.getElementById('treasureChest');
-let isChestOpen = false;
-
-treasureChest.addEventListener('click', () => {
-    if (!isChestOpen) {
-        treasureChest.classList.add('open');
-        isChestOpen = true;
-        triggerConfetti();
-    }
-});
-
 // ===== Confetti System =====
 const canvas = document.getElementById('confetti');
 const ctx = canvas.getContext('2d');
