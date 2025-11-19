@@ -134,42 +134,47 @@ document.querySelectorAll('.message-card, .letter-card').forEach(el => {
     observer.observe(el);
 });
 
-// ===== Camera Interaction =====
-const camera = document.querySelector('.camera');
-const cameraShutter = document.querySelector('.camera-shutter');
+// ===== Gift Box Interaction =====
+const giftLid = document.getElementById('giftLid');
+const qmark = document.querySelector('.qmark');
+let isOpen = false;
+let wasOpen = false;
 
-if (camera && cameraShutter) {
-    // Camera shutter click - trigger flash and confetti
-    cameraShutter.addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevent event bubbling
+if (giftLid) {
+    giftLid.addEventListener('click', () => {
+        if (!isOpen) {
+            // Open the box
+            giftLid.classList.remove('close');
+            giftLid.classList.add('open');
+            isOpen = true;
+            wasOpen = true;
 
-        // Add flash class
-        camera.classList.add('flash');
+            // Change ? to !
+            if (qmark) {
+                qmark.textContent = '!';
+            }
 
-        // Trigger confetti
-        triggerConfetti();
+            // Trigger confetti
+            triggerConfetti();
+        } else {
+            // Close the box
+            giftLid.classList.remove('open');
+            giftLid.classList.add('close');
+            isOpen = false;
 
-        // Remove flash class after animation
-        setTimeout(() => {
-            camera.classList.remove('flash');
-        }, 500);
-    });
-
-    // Camera hover effect
-    camera.addEventListener('mouseenter', () => {
-        camera.style.animationPlayState = 'paused';
-    });
-
-    camera.addEventListener('mouseleave', () => {
-        camera.style.animationPlayState = 'running';
+            // Change ! back to ?
+            if (qmark) {
+                qmark.textContent = '?';
+            }
+        }
     });
 }
 
-// Observe camera section for fade-in
-const cameraDescription = document.querySelector('.camera-description');
-if (cameraDescription) {
-    cameraDescription.style.opacity = '0';
-    cameraDescription.style.transform = 'translateX(-30px)';
-    cameraDescription.style.transition = 'opacity 1s ease, transform 1s ease';
-    observer.observe(cameraDescription);
+// Observe gift description for fade-in
+const giftDescription = document.querySelector('.gift-description');
+if (giftDescription) {
+    giftDescription.style.opacity = '0';
+    giftDescription.style.transform = 'translateY(30px)';
+    giftDescription.style.transition = 'opacity 1s ease, transform 1s ease';
+    observer.observe(giftDescription);
 }
