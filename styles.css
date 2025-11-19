@@ -349,13 +349,13 @@ body {
 /* Camera Gift Icon */
 .camera-gift {
     color: #FF6B9D;
-    animation: giftRotate 2s infinite linear, fadeIn 1.5s ease;
     opacity: 0;
     font-size: 3em;
     z-index: 2;
     position: absolute;
     transform-origin: 50% 50%;
     text-shadow: 0 0 0.3em rgba(255, 107, 157, 0.8);
+    transform: rotateZ(0deg) translateZ(2em) rotateX(-90deg) rotateY(45deg);
 }
 
 @keyframes giftRotate {
@@ -370,12 +370,14 @@ body {
     }
 }
 
-@keyframes fadeIn {
+@keyframes cameraFadeIn {
     0% {
         opacity: 0;
+        transform: rotateZ(0deg) translateZ(2em) rotateX(-90deg) rotateY(45deg) scale(0.5);
     }
     100% {
         opacity: 1;
+        transform: rotateZ(0deg) translateZ(2em) rotateX(-90deg) rotateY(45deg) scale(1);
     }
 }
 
@@ -457,11 +459,17 @@ body {
 
 .lid.open .camera-gift {
     opacity: 1;
+    animation: cameraFadeIn 1s ease-out forwards, giftRotate 2s 1s infinite linear;
 }
 
 .lid.close {
     transform: translateZ(4em);
     animation: lidDown 1s ease-out, wiggle 1.5s 1s infinite cubic-bezier(0.2, 1.2, 0.6, 1.1);
+}
+
+.lid.close .camera-gift {
+    opacity: 0;
+    animation: none;
 }
 
 @keyframes lidDown {
@@ -571,6 +579,24 @@ body {
     max-width: 600px;
     margin: 60px auto 0;
     text-align: center;
+    display: none;
+    opacity: 0;
+}
+
+.gift-description.show {
+    display: block;
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .gift-desc-title {

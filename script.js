@@ -125,6 +125,7 @@ document.querySelectorAll('.message-card, .letter-card').forEach(el => {
 // ===== Gift Box Interaction =====
 const giftLid = document.getElementById('giftLid');
 const qmark = document.querySelector('.qmark');
+const giftDescription = document.querySelector('.gift-description');
 let isOpen = false;
 let wasOpen = false;
 
@@ -142,6 +143,11 @@ if (giftLid) {
                 qmark.textContent = '!';
             }
 
+            // Show gift description
+            if (giftDescription) {
+                giftDescription.classList.add('show');
+            }
+
             // Trigger confetti
             triggerConfetti();
         } else {
@@ -154,15 +160,11 @@ if (giftLid) {
             if (qmark) {
                 qmark.textContent = '?';
             }
+
+            // Hide gift description (optional - can keep it visible once opened)
+            // if (giftDescription) {
+            //     giftDescription.classList.remove('show');
+            // }
         }
     });
-}
-
-// Observe gift description for fade-in
-const giftDescription = document.querySelector('.gift-description');
-if (giftDescription) {
-    giftDescription.style.opacity = '0';
-    giftDescription.style.transform = 'translateY(30px)';
-    giftDescription.style.transition = 'opacity 1s ease, transform 1s ease';
-    observer.observe(giftDescription);
 }
