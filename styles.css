@@ -355,29 +355,35 @@ body {
     position: absolute;
     transform-origin: 50% 50%;
     text-shadow: 0 0 0.3em rgba(255, 107, 157, 0.8);
-    transform: rotateZ(0deg) translateZ(2em) rotateX(-90deg) rotateY(45deg);
+    transform: rotateZ(0deg) translateZ(5em) rotateX(-90deg) rotateY(45deg);
+    pointer-events: none;
+}
+
+.camera-gift.show {
+    opacity: 1;
+    animation: cameraFadeIn 1s ease-out forwards, giftRotate 2s 1s infinite linear;
 }
 
 @keyframes giftRotate {
     0% {
-        transform: rotateZ(0deg) translateZ(2em) rotateX(-90deg) rotateY(45deg);
+        transform: rotateZ(0deg) translateZ(5em) rotateX(-90deg) rotateY(45deg);
     }
     50% {
-        transform: rotateZ(180deg) translateZ(1.5em) rotateX(-90deg) rotateY(45deg);
+        transform: rotateZ(180deg) translateZ(5.5em) rotateX(-90deg) rotateY(45deg);
     }
     100% {
-        transform: rotateZ(360deg) translateZ(2em) rotateX(-90deg) rotateY(45deg);
+        transform: rotateZ(360deg) translateZ(5em) rotateX(-90deg) rotateY(45deg);
     }
 }
 
 @keyframes cameraFadeIn {
     0% {
         opacity: 0;
-        transform: rotateZ(0deg) translateZ(2em) rotateX(-90deg) rotateY(45deg) scale(0.5);
+        transform: rotateZ(0deg) translateZ(5em) rotateX(-90deg) rotateY(45deg) scale(0.5);
     }
     100% {
         opacity: 1;
-        transform: rotateZ(0deg) translateZ(2em) rotateX(-90deg) rotateY(45deg) scale(1);
+        transform: rotateZ(0deg) translateZ(5em) rotateX(-90deg) rotateY(45deg) scale(1);
     }
 }
 
@@ -457,19 +463,9 @@ body {
     animation: lidUp 1s ease-out, floaty 2s 1s infinite linear;
 }
 
-.lid.open .camera-gift {
-    opacity: 1;
-    animation: cameraFadeIn 1s ease-out forwards, giftRotate 2s 1s infinite linear;
-}
-
 .lid.close {
     transform: translateZ(4em);
     animation: lidDown 1s ease-out, wiggle 1.5s 1s infinite cubic-bezier(0.2, 1.2, 0.6, 1.1);
-}
-
-.lid.close .camera-gift {
-    opacity: 0;
-    animation: none;
 }
 
 @keyframes lidDown {

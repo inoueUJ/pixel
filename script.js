@@ -126,6 +126,7 @@ document.querySelectorAll('.message-card, .letter-card').forEach(el => {
 const giftLid = document.getElementById('giftLid');
 const qmark = document.querySelector('.qmark');
 const giftDescription = document.querySelector('.gift-description');
+const cameraGift = document.querySelector('.camera-gift');
 let isOpen = false;
 let wasOpen = false;
 
@@ -141,6 +142,11 @@ if (giftLid) {
             // Change ? to !
             if (qmark) {
                 qmark.textContent = '!';
+            }
+
+            // Show camera icon
+            if (cameraGift) {
+                cameraGift.classList.add('show');
             }
 
             // Show gift description
@@ -159,6 +165,11 @@ if (giftLid) {
             // Change ! back to ?
             if (qmark) {
                 qmark.textContent = '?';
+            }
+
+            // Hide camera icon
+            if (cameraGift) {
+                cameraGift.classList.remove('show');
             }
 
             // Hide gift description (optional - can keep it visible once opened)
