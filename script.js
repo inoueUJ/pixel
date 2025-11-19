@@ -133,3 +133,43 @@ document.querySelectorAll('.message-card, .letter-card').forEach(el => {
     el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
     observer.observe(el);
 });
+
+// ===== Camera Interaction =====
+const camera = document.querySelector('.camera');
+const cameraShutter = document.querySelector('.camera-shutter');
+
+if (camera && cameraShutter) {
+    // Camera shutter click - trigger flash and confetti
+    cameraShutter.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent event bubbling
+
+        // Add flash class
+        camera.classList.add('flash');
+
+        // Trigger confetti
+        triggerConfetti();
+
+        // Remove flash class after animation
+        setTimeout(() => {
+            camera.classList.remove('flash');
+        }, 500);
+    });
+
+    // Camera hover effect
+    camera.addEventListener('mouseenter', () => {
+        camera.style.animationPlayState = 'paused';
+    });
+
+    camera.addEventListener('mouseleave', () => {
+        camera.style.animationPlayState = 'running';
+    });
+}
+
+// Observe camera section for fade-in
+const cameraDescription = document.querySelector('.camera-description');
+if (cameraDescription) {
+    cameraDescription.style.opacity = '0';
+    cameraDescription.style.transform = 'translateX(-30px)';
+    cameraDescription.style.transition = 'opacity 1s ease, transform 1s ease';
+    observer.observe(cameraDescription);
+}
