@@ -346,46 +346,41 @@ body {
     transform-style: preserve-3d;
 }
 
-/* Camera Gift Icon */
+/* Camera Gift Icon - matches CodePen heart-gift implementation */
 .camera-gift {
     color: #FF6B9D;
     opacity: 0;
     font-size: 3em;
-    z-index: 3;
+    z-index: 2;
     position: absolute;
-    left: 50%;
-    top: 50%;
     transform-origin: 50% 50%;
     text-shadow: 0 0 0.3em rgba(255, 107, 157, 0.8);
-    transform: translate(-50%, -50%) rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg);
     pointer-events: none;
 }
 
 .camera-gift.show {
     opacity: 1;
-    animation: cameraFadeIn 1s ease-out forwards, giftRotate 2s 1s infinite linear;
+    animation: cameraFadeIn 1.5s ease, giftRotate 2s infinite linear;
 }
 
 @keyframes giftRotate {
     0% {
-        transform: translate(-50%, -50%) rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg);
+        transform: rotateZ(0deg) translateZ(2em) rotateX(-90deg) rotateY(45deg);
     }
     50% {
-        transform: translate(-50%, -50%) rotateZ(180deg) translateZ(9.8em) rotateX(-90deg) rotateY(45deg);
+        transform: rotateZ(180deg) translateZ(1.5em) rotateX(-90deg) rotateY(45deg);
     }
     100% {
-        transform: translate(-50%, -50%) rotateZ(360deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg);
+        transform: rotateZ(360deg) translateZ(2em) rotateX(-90deg) rotateY(45deg);
     }
 }
 
 @keyframes cameraFadeIn {
     0% {
         opacity: 0;
-        transform: translate(-50%, -50%) rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg) scale(0.5);
     }
     100% {
         opacity: 1;
-        transform: translate(-50%, -50%) rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg) scale(1);
     }
 }
 
