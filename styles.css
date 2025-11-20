@@ -351,11 +351,11 @@ body {
     color: #FF6B9D;
     opacity: 0;
     font-size: 3em;
-    z-index: 2;
+    z-index: 3;
     position: absolute;
     transform-origin: 50% 50%;
     text-shadow: 0 0 0.3em rgba(255, 107, 157, 0.8);
-    transform: rotateZ(0deg) translateZ(3.9em) rotateX(-90deg) rotateY(45deg);
+    transform: rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg);
     pointer-events: none;
 }
 
@@ -366,24 +366,24 @@ body {
 
 @keyframes giftRotate {
     0% {
-        transform: rotateZ(0deg) translateZ(3.9em) rotateX(-90deg) rotateY(45deg);
+        transform: rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg);
     }
     50% {
-        transform: rotateZ(180deg) translateZ(4.2em) rotateX(-90deg) rotateY(45deg);
+        transform: rotateZ(180deg) translateZ(9.8em) rotateX(-90deg) rotateY(45deg);
     }
     100% {
-        transform: rotateZ(360deg) translateZ(3.9em) rotateX(-90deg) rotateY(45deg);
+        transform: rotateZ(360deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg);
     }
 }
 
 @keyframes cameraFadeIn {
     0% {
         opacity: 0;
-        transform: rotateZ(0deg) translateZ(3.9em) rotateX(-90deg) rotateY(45deg) scale(0.5);
+        transform: rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg) scale(0.5);
     }
     100% {
         opacity: 1;
-        transform: rotateZ(0deg) translateZ(3.9em) rotateX(-90deg) rotateY(45deg) scale(1);
+        transform: rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg) scale(1);
     }
 }
 
