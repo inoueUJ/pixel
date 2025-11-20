@@ -567,87 +567,118 @@ body {
     transform: rotateZ(13deg) translateZ(3em);
 }
 
-/* Gift Description */
-.gift-description {
-    max-width: 600px;
-    margin: 60px auto 0;
-    text-align: center;
+/* Message Dialog */
+.message-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
     display: none;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.gift-description.show {
-    display: block;
-    animation: fadeInUp 1s ease forwards;
+.message-dialog.show {
+    display: flex;
+    opacity: 1;
 }
 
-@keyframes fadeInUp {
+.dialog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.dialog-content {
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: dialogSlideIn 0.5s ease-out;
+    padding: 40px;
+}
+
+@keyframes dialogSlideIn {
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(-50px) scale(0.9);
     }
     100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
-.gift-desc-title {
+.dialog-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #FF6B9D;
+    padding-bottom: 20px;
+}
+
+.dialog-to {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
+    color: #FF6B9D;
     font-weight: 700;
+}
+
+.dialog-body {
+    margin-bottom: 40px;
+}
+
+.dialog-message {
+    font-size: 1.1rem;
+    line-height: 2;
     color: #2C3E50;
+    text-align: left;
+}
+
+.dialog-footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dialog-from {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #FF6B9D;
     margin-bottom: 20px;
 }
 
-.gift-desc-text {
-    font-size: 1.2rem;
-    line-height: 2;
-    color: #5A6C7D;
-    margin-bottom: 40px;
-}
-
-.gift-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-bottom: 40px;
-}
-
-.gift-feature-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px 20px;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 107, 157, 0.2);
-    transition: all 0.3s ease;
-}
-
-.gift-feature-item:hover {
-    background: rgba(255, 255, 255, 0.9);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(255, 107, 157, 0.15);
-}
-
-.gift-feature-icon {
-    font-size: 2rem;
-}
-
-.gift-feature-text {
+.close-dialog-btn {
+    background: linear-gradient(135deg, #FF6B9D, #FFA07A);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 40px;
     font-size: 1.1rem;
-    color: #2C3E50;
-    font-weight: 500;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
 }
 
-.gift-final-message {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.8rem;
-    color: #FF6B9D;
-    font-weight: 700;
-    text-align: center;
-    margin-top: 20px;
+.close-dialog-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+}
+
+.close-dialog-btn:active {
+    transform: translateY(0);
 }
 
 /* Responsive for Gift Box Section */
@@ -668,20 +699,16 @@ body {
         font-size: 2.5rem;
     }
 
-    .gift-desc-title {
-        font-size: 2rem;
+    .dialog-content {
+        padding: 30px;
     }
 
-    .gift-desc-text {
-        font-size: 1.1rem;
+    .dialog-to {
+        font-size: 1.75rem;
     }
 
-    .gift-final-message {
-        font-size: 1.5rem;
-    }
-
-    .gift-features {
-        gap: 15px;
+    .dialog-message {
+        font-size: 1rem;
     }
 }
 
@@ -706,32 +733,25 @@ body {
         font-size: 0.9rem;
     }
 
-    .gift-desc-title {
-        font-size: 1.75rem;
+    .dialog-content {
+        padding: 25px;
+        width: 95%;
     }
 
-    .gift-desc-text {
-        font-size: 1rem;
-    }
-
-    .gift-final-message {
-        font-size: 1.3rem;
-    }
-
-    .gift-features {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .gift-feature-item {
-        padding: 12px 15px;
-    }
-
-    .gift-feature-icon {
+    .dialog-to {
         font-size: 1.5rem;
     }
 
-    .gift-feature-text {
+    .dialog-message {
+        font-size: 0.95rem;
+    }
+
+    .dialog-from {
+        font-size: 1.3rem;
+    }
+
+    .close-dialog-btn {
+        padding: 10px 30px;
         font-size: 1rem;
     }
 }
