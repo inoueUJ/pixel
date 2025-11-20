@@ -256,216 +256,6 @@ body {
     line-height: 1.8;
 }
 
-/* ===== Gift Section ===== */
-.gift-section {
-    min-height: 100vh;
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #FFF0F5 0%, #FFE5E5 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.section-subtitle {
-    text-align: center;
-    font-size: 1.3rem;
-    color: #5A6C7D;
-    margin-bottom: 60px;
-    font-weight: 300;
-}
-
-.treasure-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 1200px;
-    min-height: 500px;
-}
-
-/* Treasure Chest */
-.treasure-chest {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.treasure-chest:hover:not(.open) {
-    transform: scale(1.05);
-}
-
-/* Chest Body */
-.chest-body {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 140px;
-}
-
-.chest-front {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
-    border: 4px solid #5C3317;
-    border-radius: 0 0 15px 15px;
-    box-shadow:
-        inset 0 -20px 40px rgba(0, 0, 0, 0.3),
-        0 15px 40px rgba(0, 0, 0, 0.3);
-}
-
-.chest-front::before {
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    right: 10%;
-    height: 2px;
-    background: #5C3317;
-    box-shadow: 0 30px 0 #5C3317, 0 60px 0 #5C3317;
-}
-
-/* Chest Lock */
-.chest-lock {
-    position: absolute;
-    width: 50px;
-    height: 60px;
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-    border: 3px solid #DAA520;
-    border-radius: 8px;
-    left: 50%;
-    top: 40%;
-    transform: translateX(-50%);
-    z-index: 10;
-    box-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.3),
-        inset 0 2px 5px rgba(255, 255, 255, 0.5);
-    transition: all 0.5s ease;
-}
-
-.chest-lock::before {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 28px;
-    background: transparent;
-    border: 5px solid #FFD700;
-    border-radius: 50% 50% 0 0;
-    border-bottom: none;
-    top: -22px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.chest-lock::after {
-    content: '🔒';
-    position: absolute;
-    font-size: 1.2rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.treasure-chest.open .chest-lock {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-30px) rotate(20deg);
-}
-
-/* Chest Lid */
-.chest-lid {
-    position: absolute;
-    width: 100%;
-    height: 80px;
-    top: 0;
-    transform-origin: bottom;
-    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    z-index: 5;
-}
-
-.treasure-chest.open .chest-lid {
-    transform: rotateX(-110deg);
-}
-
-.lid-top {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #A0522D 0%, #8B4513 100%);
-    border: 4px solid #5C3317;
-    border-radius: 50% 50% 0 0 / 30% 30% 0 0;
-    box-shadow:
-        inset 0 10px 30px rgba(0, 0, 0, 0.2),
-        0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.lid-top::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    height: 40%;
-    border: 3px solid #5C3317;
-    border-radius: 5px;
-}
-
-/* Gift Content */
-.gift-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease 0.5s;
-    z-index: 3;
-}
-
-.treasure-chest.open .gift-content {
-    opacity: 1;
-    animation: giftAppear 0.6s ease 0.7s both;
-}
-
-@keyframes giftAppear {
-    0% {
-        transform: translate(-50%, -50%) scale(0) rotate(0deg);
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.3) rotate(10deg);
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
-    }
-}
-
-.gift-icon {
-    font-size: 5rem;
-    margin-bottom: 20px;
-    animation: rotateGift 3s ease-in-out infinite;
-}
-
-@keyframes rotateGift {
-    0%, 100% {
-        transform: rotate(-8deg);
-    }
-    50% {
-        transform: rotate(8deg);
-    }
-}
-
-.gift-message {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.5rem;
-    color: #FF6B9D;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-}
-
 /* ===== Confetti Canvas ===== */
 #confetti {
     position: fixed;
@@ -503,23 +293,6 @@ body {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-
-    .treasure-chest {
-        width: 250px;
-        height: 170px;
-    }
-
-    .chest-body {
-        height: 120px;
-    }
-
-    .gift-icon {
-        font-size: 4rem;
-    }
-
-    .gift-message {
-        font-size: 1.2rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -530,21 +303,438 @@ body {
     .letter-card {
         padding: 30px 20px;
     }
+}
 
-    .treasure-chest {
-        width: 200px;
-        height: 140px;
+/* ===== Gift Box Present Section ===== */
+.gift-box-present-section {
+    min-height: 100vh;
+    padding: 100px 20px;
+    background: radial-gradient(circle at 100% 0%, white, #6495ED 100%);
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.gift-box-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60px 0;
+}
+
+/* 3D Floor Container */
+.floor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    height: 20em;
+    position: relative;
+    width: 20em;
+    transform-origin: 50% 50%;
+    transform: rotateX(45deg) rotateZ(45deg);
+    transform-style: preserve-3d;
+    perspective: 1200px;
+}
+
+/* Gift Box Container */
+.gift-box {
+    z-index: 1;
+    position: relative;
+    transform: translateZ(6em);
+    transform-style: preserve-3d;
+}
+
+/* Camera Gift Icon */
+.camera-gift {
+    color: #FF6B9D;
+    opacity: 0;
+    font-size: 3em;
+    z-index: 2;
+    position: absolute;
+    transform-origin: 50% 50%;
+    text-shadow: 0 0 0.3em rgba(255, 107, 157, 0.8);
+    transform: rotateZ(0deg) translateZ(3.6em) rotateX(-90deg) rotateY(45deg);
+    pointer-events: none;
+}
+
+.camera-gift.show {
+    opacity: 1;
+    animation: cameraFadeIn 1s ease-out forwards, giftRotate 2s 1s infinite linear;
+}
+
+@keyframes giftRotate {
+    0% {
+        transform: rotateZ(0deg) translateZ(3.6em) rotateX(-90deg) rotateY(45deg);
+    }
+    50% {
+        transform: rotateZ(180deg) translateZ(3.9em) rotateX(-90deg) rotateY(45deg);
+    }
+    100% {
+        transform: rotateZ(360deg) translateZ(3.6em) rotateX(-90deg) rotateY(45deg);
+    }
+}
+
+@keyframes cameraFadeIn {
+    0% {
+        opacity: 0;
+        transform: rotateZ(0deg) translateZ(3.6em) rotateX(-90deg) rotateY(45deg) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateZ(0deg) translateZ(3.6em) rotateX(-90deg) rotateY(45deg) scale(1);
+    }
+}
+
+/* Box Faces */
+.face {
+    height: 6em;
+    width: 6em;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 0 0.5em 0.25em rgba(0, 0, 0, 0.2) inset;
+}
+
+.top {
+    background-color: black;
+    background-image: linear-gradient(-90deg, transparent 49%, rgb(50, 110, 160)),
+        linear-gradient(0deg, transparent 49%, rgb(50, 110, 160));
+    transform: translateZ(3em);
+    box-shadow: 0 0 0 0.4em rgba(50, 150, 200, 1) inset;
+}
+
+.right {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 33%, rgba(225, 225, 0, 1) 34% 65%, rgba(0, 0, 0, 0) 66%);
+    background-color: rgb(20, 130, 170);
+    transform: rotateY(90deg) translateZ(3em);
+}
+
+.left {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 33%, rgba(200, 200, 0, 1) 33% 66%, rgba(0, 0, 0, 0) 66%);
+    background-color: rgb(0, 110, 150);
+    transform: rotateX(-90deg) translateZ(3em);
+}
+
+/* Lid and Parts */
+.lid {
+    animation: wiggle 1.5s infinite cubic-bezier(0.2, 1.2, 0.6, 1.1);
+    position: absolute;
+    height: 6.5em;
+    width: 6.5em;
+    transform-style: preserve-3d;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.lid:hover {
+    animation-play-state: paused;
+}
+
+@keyframes wiggle {
+    0% {
+        transform: translateZ(4em) rotateX(0deg) rotateY(0deg);
+    }
+    11% {
+        transform: translateZ(4em) rotateX(1deg) rotateY(-1deg);
+    }
+    22% {
+        transform: translateZ(4em) rotateX(1deg) rotateY(1deg);
+    }
+    33% {
+        transform: translateZ(4em) rotateX(1deg) rotateY(0deg);
+    }
+    44% {
+        transform: translateZ(4em) rotateX(-1deg) rotateY(-1deg);
+    }
+    55% {
+        transform: translateZ(4em) rotateX(1deg) rotateY(1deg);
+    }
+    66% {
+        transform: translateZ(4em) rotateX(-1deg) rotateY(0deg);
+    }
+    100% {
+        transform: translateZ(4em) rotateX(0deg);
+    }
+}
+
+.lid.open {
+    transform: translateZ(16em);
+    animation: lidUp 1s ease-out, floaty 2s 1s infinite linear;
+}
+
+.lid.close {
+    transform: translateZ(4em);
+    animation: lidDown 1s ease-out, wiggle 1.5s 1s infinite cubic-bezier(0.2, 1.2, 0.6, 1.1);
+}
+
+@keyframes lidDown {
+    0% {
+        transform: translateZ(16em);
+    }
+    100% {
+        transform: translateZ(4em);
+    }
+}
+
+@keyframes lidUp {
+    0% {
+        transform: translateZ(4em) rotateX(0deg);
+    }
+    100% {
+        transform: translateZ(16em) rotateX(0deg);
+    }
+}
+
+@keyframes floaty {
+    0% {
+        transform: translateZ(16em);
+    }
+    50% {
+        transform: translateZ(15.5em);
+    }
+}
+
+.ltop {
+    height: 6.5em;
+    width: 6.5em;
+    background-color: rgb(50, 150, 200);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 33%, rgba(225, 225, 0, 1) 34% 65%, rgba(0, 0, 0, 0.1) 66% 68%, rgba(0, 0, 0, 0) 69%),
+        linear-gradient(to top, rgba(0, 0, 0, 0) 33%, rgba(200, 200, 0, 1) 34% 65%, rgba(0, 0, 0, 0) 66%);
+}
+
+.lright {
+    z-index: 2;
+    background-color: rgb(20, 130, 170);
+    width: 3em;
+    height: 6.5em;
+    transform: rotateY(90deg) translateX(1.5em) translateZ(5em);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 33%, rgba(200, 200, 0, 1) 34% 65%, rgba(0, 0, 0, 0) 66%);
+}
+
+.lleft {
+    height: 3em;
+    width: 6.5em;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 33%, rgba(225, 225, 0, 1) 33% 66%, rgba(0, 0, 0, 0) 66%);
+    background-color: rgb(0, 110, 150);
+    transform: rotateX(-90deg) translateY(1.5em) translateZ(5em);
+}
+
+/* Question Mark */
+.qmark {
+    font-size: 3em;
+    font-weight: 700;
+    color: rgba(250, 250, 100, 1);
+    text-shadow: 0 0 1em 0em rgba(250, 250, 0, 1);
+    position: absolute;
+    transform: translateZ(1em) translateX(0.8em) translateY(0.5em) rotateX(-90deg) rotateY(45deg);
+}
+
+.lid.open .qmark {
+    content: '!';
+}
+
+/* Shadows */
+.shadow {
+    position: absolute;
+    top: 54%;
+    left: 57.3%;
+    z-index: 2;
+    height: 18em;
+    width: 7.9em;
+    border-radius: 25% 0 0 0;
+    background: linear-gradient(rgba(68, 68, 102, 0.4), rgba(0, 0, 0, 0));
+    transform: rotateZ(-20deg) translateZ(3em);
+}
+
+.shadow2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    height: 20em;
+    width: 6em;
+    background: linear-gradient(rgba(68, 68, 102, 0.4), rgba(0, 0, 0, 0));
+    transform: translateZ(3em);
+}
+
+.shadow3 {
+    position: absolute;
+    top: 45%;
+    left: 36.5%;
+    z-index: 2;
+    height: 22em;
+    width: 8em;
+    border-radius: 0 50% 0 0;
+    background: linear-gradient(rgba(68, 68, 102, 0.4), rgba(0, 0, 0, 0));
+    transform: rotateZ(13deg) translateZ(3em);
+}
+
+/* Gift Description */
+.gift-description {
+    max-width: 600px;
+    margin: 60px auto 0;
+    text-align: center;
+    display: none;
+    opacity: 0;
+}
+
+.gift-description.show {
+    display: block;
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gift-desc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2C3E50;
+    margin-bottom: 20px;
+}
+
+.gift-desc-text {
+    font-size: 1.2rem;
+    line-height: 2;
+    color: #5A6C7D;
+    margin-bottom: 40px;
+}
+
+.gift-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.gift-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 107, 157, 0.2);
+    transition: all 0.3s ease;
+}
+
+.gift-feature-item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(255, 107, 157, 0.15);
+}
+
+.gift-feature-icon {
+    font-size: 2rem;
+}
+
+.gift-feature-text {
+    font-size: 1.1rem;
+    color: #2C3E50;
+    font-weight: 500;
+}
+
+.gift-final-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #FF6B9D;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive for Gift Box Section */
+@media (max-width: 768px) {
+    .gift-box-present-section {
+        padding: 80px 20px;
     }
 
-    .chest-body {
-        height: 100px;
+    .floor {
+        transform: scale(0.75) rotateX(45deg) rotateZ(45deg);
     }
 
-    .chest-lid {
-        height: 60px;
+    .camera-gift {
+        font-size: 2.5em;
     }
 
-    .gift-icon {
-        font-size: 3rem;
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .gift-desc-title {
+        font-size: 2rem;
+    }
+
+    .gift-desc-text {
+        font-size: 1.1rem;
+    }
+
+    .gift-final-message {
+        font-size: 1.5rem;
+    }
+
+    .gift-features {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gift-box-present-section {
+        padding: 60px 15px;
+    }
+
+    .floor {
+        transform: scale(0.55) rotateX(45deg) rotateZ(45deg);
+    }
+
+    .camera-gift {
+        font-size: 2em;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .gift-desc-title {
+        font-size: 1.75rem;
+    }
+
+    .gift-desc-text {
+        font-size: 1rem;
+    }
+
+    .gift-final-message {
+        font-size: 1.3rem;
+    }
+
+    .gift-features {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .gift-feature-item {
+        padding: 12px 15px;
+    }
+
+    .gift-feature-icon {
+        font-size: 1.5rem;
+    }
+
+    .gift-feature-text {
+        font-size: 1rem;
     }
 }

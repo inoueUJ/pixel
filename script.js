@@ -1,15 +1,3 @@
-// ===== Treasure Chest Interaction =====
-const treasureChest = document.getElementById('treasureChest');
-let isChestOpen = false;
-
-treasureChest.addEventListener('click', () => {
-    if (!isChestOpen) {
-        treasureChest.classList.add('open');
-        isChestOpen = true;
-        triggerConfetti();
-    }
-});
-
 // ===== Confetti System =====
 const canvas = document.getElementById('confetti');
 const ctx = canvas.getContext('2d');
@@ -133,3 +121,61 @@ document.querySelectorAll('.message-card, .letter-card').forEach(el => {
     el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
     observer.observe(el);
 });
+
+// ===== Gift Box Interaction =====
+const giftLid = document.getElementById('giftLid');
+const qmark = document.querySelector('.qmark');
+const giftDescription = document.querySelector('.gift-description');
+const cameraGift = document.querySelector('.camera-gift');
+let isOpen = false;
+let wasOpen = false;
+
+if (giftLid) {
+    giftLid.addEventListener('click', () => {
+        if (!isOpen) {
+            // Open the box
+            giftLid.classList.remove('close');
+            giftLid.classList.add('open');
+            isOpen = true;
+            wasOpen = true;
+
+            // Change ? to !
+            if (qmark) {
+                qmark.textContent = '!';
+            }
+
+            // Show camera icon
+            if (cameraGift) {
+                cameraGift.classList.add('show');
+            }
+
+            // Show gift description
+            if (giftDescription) {
+                giftDescription.classList.add('show');
+            }
+
+            // Trigger confetti
+            triggerConfetti();
+        } else {
+            // Close the box
+            giftLid.classList.remove('open');
+            giftLid.classList.add('close');
+            isOpen = false;
+
+            // Change ! back to ?
+            if (qmark) {
+                qmark.textContent = '?';
+            }
+
+            // Hide camera icon
+            if (cameraGift) {
+                cameraGift.classList.remove('show');
+            }
+
+            // Hide gift description (optional - can keep it visible once opened)
+            // if (giftDescription) {
+            //     giftDescription.classList.remove('show');
+            // }
+        }
+    });
+}
