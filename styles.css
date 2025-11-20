@@ -257,26 +257,17 @@ body {
 }
 
 /* ===== Memories Carousel Section ===== */
-.memories-section {
-    min-height: 100vh;
-    padding: 100px 0;
-    background: linear-gradient(to bottom, #FFFFFF 0%, #FFF5F7 100%);
-    overflow: hidden;
-}
-
-.memories-section .container {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
 .section-subtitle {
     font-family: 'Dancing Script', cursive;
     font-size: 1.5rem;
     color: #FF6B9D;
     margin-top: 10px;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .carousel-wrapper {
+    margin-bottom: 60px;
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -381,10 +372,6 @@ body {
         gap: 20px;
     }
 
-    .memories-section {
-        padding: 80px 0;
-    }
-
     .carousel-item {
         width: 300px;
         height: 225px;
@@ -402,10 +389,6 @@ body {
 
     .letter-card {
         padding: 30px 20px;
-    }
-
-    .memories-section {
-        padding: 60px 0;
     }
 
     .section-subtitle {
