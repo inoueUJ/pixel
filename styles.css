@@ -353,9 +353,11 @@ body {
     font-size: 3em;
     z-index: 3;
     position: absolute;
+    left: 50%;
+    top: 50%;
     transform-origin: 50% 50%;
     text-shadow: 0 0 0.3em rgba(255, 107, 157, 0.8);
-    transform: rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg);
+    transform: translate(-50%, -50%) rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg);
     pointer-events: none;
 }
 
@@ -366,24 +368,24 @@ body {
 
 @keyframes giftRotate {
     0% {
-        transform: rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg);
+        transform: translate(-50%, -50%) rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg);
     }
     50% {
-        transform: rotateZ(180deg) translateZ(9.8em) rotateX(-90deg) rotateY(45deg);
+        transform: translate(-50%, -50%) rotateZ(180deg) translateZ(9.8em) rotateX(-90deg) rotateY(45deg);
     }
     100% {
-        transform: rotateZ(360deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg);
+        transform: translate(-50%, -50%) rotateZ(360deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg);
     }
 }
 
 @keyframes cameraFadeIn {
     0% {
         opacity: 0;
-        transform: rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg) scale(0.5);
+        transform: translate(-50%, -50%) rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg) scale(0.5);
     }
     100% {
         opacity: 1;
-        transform: rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg) scale(1);
+        transform: translate(-50%, -50%) rotateZ(0deg) translateZ(9.5em) rotateX(-90deg) rotateY(45deg) scale(1);
     }
 }
 
