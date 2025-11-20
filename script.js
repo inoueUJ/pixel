@@ -89,6 +89,51 @@ window.addEventListener('load', () => {
     setTimeout(triggerConfetti, 500);
 });
 
+// ===== Dynamic Carousel Image Loading =====
+function loadCarouselImages() {
+    const carouselTrack = document.getElementById('carouselTrack');
+    if (!carouselTrack) return;
+
+    // imagesディレクトリ内の画像ファイル名のリスト
+    const imageFiles = [
+        'photo1.png',
+        'photo2.png',
+        'photo3.png',
+        'photo4.png',
+        'photo5.png',
+        'photo6.png'
+    ];
+
+    // 最初のセットを追加
+    imageFiles.forEach((filename, index) => {
+        const carouselItem = document.createElement('div');
+        carouselItem.className = 'carousel-item';
+
+        const img = document.createElement('img');
+        img.src = `images/${filename}`;
+        img.alt = `思い出${index + 1}`;
+
+        carouselItem.appendChild(img);
+        carouselTrack.appendChild(carouselItem);
+    });
+
+    // 無限ループのために同じ画像を複製
+    imageFiles.forEach((filename, index) => {
+        const carouselItem = document.createElement('div');
+        carouselItem.className = 'carousel-item';
+
+        const img = document.createElement('img');
+        img.src = `images/${filename}`;
+        img.alt = `思い出${index + 1}`;
+
+        carouselItem.appendChild(img);
+        carouselTrack.appendChild(carouselItem);
+    });
+}
+
+// Load carousel images on page load
+loadCarouselImages();
+
 // ===== Smooth Scroll for Scroll Indicator =====
 const scrollIndicator = document.querySelector('.scroll-indicator');
 if (scrollIndicator) {
