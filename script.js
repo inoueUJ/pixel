@@ -125,8 +125,9 @@ document.querySelectorAll('.message-card, .letter-card').forEach(el => {
 // ===== Gift Box Interaction =====
 const giftLid = document.getElementById('giftLid');
 const qmark = document.querySelector('.qmark');
-const giftDescription = document.querySelector('.gift-description');
 const cameraGift = document.querySelector('.camera-gift');
+const messageDialog = document.getElementById('messageDialog');
+const closeDialogBtn = document.getElementById('closeDialog');
 let isOpen = false;
 let wasOpen = false;
 
@@ -149,13 +150,15 @@ if (giftLid) {
                 cameraGift.classList.add('show');
             }
 
-            // Show gift description
-            if (giftDescription) {
-                giftDescription.classList.add('show');
-            }
-
             // Trigger confetti
             triggerConfetti();
+
+            // Show message dialog after 1.5 seconds
+            setTimeout(() => {
+                if (messageDialog) {
+                    messageDialog.classList.add('show');
+                }
+            }, 1500);
         } else {
             // Close the box
             giftLid.classList.remove('open');
@@ -171,11 +174,25 @@ if (giftLid) {
             if (cameraGift) {
                 cameraGift.classList.remove('show');
             }
-
-            // Hide gift description (optional - can keep it visible once opened)
-            // if (giftDescription) {
-            //     giftDescription.classList.remove('show');
-            // }
         }
     });
+}
+
+// Close dialog button
+if (closeDialogBtn) {
+    closeDialogBtn.addEventListener('click', () => {
+        if (messageDialog) {
+            messageDialog.classList.remove('show');
+        }
+    });
+}
+
+// Close dialog when clicking overlay
+if (messageDialog) {
+    const overlay = messageDialog.querySelector('.dialog-overlay');
+    if (overlay) {
+        overlay.addEventListener('click', () => {
+            messageDialog.classList.remove('show');
+        });
+    }
 }
