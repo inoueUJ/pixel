@@ -30,7 +30,13 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    background: linear-gradient(135deg, #FFE5E5 0%, #FFF0F5 50%, #F0F8FF 100%);
+    /* 背景画像設定 - 縦横比に関係なく画面全体にフィット */
+    background-image: url('../images/hero-background.jpg');
+    background-size: cover;          /* 画面全体をカバー（縦横比維持） */
+    background-position: center;     /* 中央配置 */
+    background-repeat: no-repeat;    /* 繰り返しなし */
+    /* フォールバック用グラデーション（画像が読み込まれない場合） */
+    background-color: #FFE5E5;
     overflow: hidden;
 }
 
