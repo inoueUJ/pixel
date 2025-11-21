@@ -31,7 +31,7 @@ body {
     justify-content: center;
     position: relative;
     /* 背景画像設定 - 全体を表示 */
-    background-image: url('../images/hero-background.jpg');
+    background-image: url('images/hero-background.jpg');
     background-size: contain;        /* 画像全体を表示 */
     background-position: center center;
     background-repeat: no-repeat;
