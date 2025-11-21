@@ -30,9 +30,9 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    /* 背景画像設定 - 全体を表示 */
+    /* 背景画像設定 */
     background-image: url('images/hero-background.jpg');
-    background-size: contain;        /* 画像全体を表示 */
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -41,7 +41,7 @@ body {
     overflow: hidden;
 }
 
-/* タブレット・PC用の調整 - containでも適用 */
+/* タブレット・PC用の調整 - 大画面では画像全体を表示 */
 @media (min-width: 768px) {
     .hero-section {
         background-size: contain;
@@ -369,6 +369,11 @@ body {
 
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
+    .hero-section {
+        /* モバイルでは余白なく表示 */
+        background-size: cover;
+    }
+
     .hero-title {
         font-size: 3rem;
     }
@@ -405,8 +410,27 @@ body {
 }
 
 @media (max-width: 480px) {
+    .hero-section {
+        /* 小型モバイルでも余白なく表示 */
+        background-size: cover;
+    }
+
     .hero-title {
         font-size: 2.5rem;
+        text-shadow:
+            -2px -2px 0 #E52521,
+            2px -2px 0 #E52521,
+            -2px 2px 0 #E52521,
+            2px 2px 0 #E52521,
+            3px 3px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .scroll-indicator {
+        margin-top: 40px;
     }
 
     .letter-card {
