@@ -11,12 +11,12 @@
 
 ## 2. カルーセル用画像（6枚）
 
-- `photo1.jpg`
-- `photo2.jpg`
-- `photo3.jpg`
-- `photo4.jpg`
-- `photo5.jpg`
-- `photo6.jpg`
+- `photo1.png`
+- `photo2.png`
+- `photo3.png`
+- `photo4.png`
+- `photo5.png`
+- `photo6.png`
 
 ## 推奨サイズ
 - 横：800px以上
