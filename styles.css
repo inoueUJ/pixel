@@ -835,11 +835,11 @@ body {
     }
 
     .floor {
-        transform: scale(0.75) rotateX(45deg) rotateZ(45deg);
+        transform: scale(1.1) rotateX(45deg) rotateZ(45deg);
     }
 
     .camera-gift {
-        font-size: 2.5em;
+        font-size: 2.8em;
     }
 
     .section-title {
@@ -865,11 +865,11 @@ body {
     }
 
     .floor {
-        transform: scale(0.55) rotateX(45deg) rotateZ(45deg);
+        transform: scale(0.95) rotateX(45deg) rotateZ(45deg);
     }
 
     .camera-gift {
-        font-size: 2em;
+        font-size: 2.3em;
     }
 
     .section-title {
