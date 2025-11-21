@@ -30,22 +30,21 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    /* 背景画像設定 - 画面全体に表示（余白なし） */
+    /* 背景画像設定 - 全体を表示 */
     background-image: url('../images/hero-background.jpg');
-    background-size: cover;          /* 画面全体をカバー */
-    background-position: center center;     /* 中央配置 */
-    background-repeat: no-repeat;    /* 繰り返しなし */
-    background-attachment: scroll;   /* スクロール時に背景も動く */
-    /* フォールバック用（画像が読み込まれない場合） */
+    background-size: contain;        /* 画像全体を表示 */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    /* 背景色（余白部分の色） */
     background-color: #FFE5E5;
     overflow: hidden;
 }
 
-/* タブレット・PC用の調整 */
-@media (min-width: 768px) and (orientation: landscape) {
+/* タブレット・PC用の調整 - containでも適用 */
+@media (min-width: 768px) {
     .hero-section {
-        /* 横長画面では上部重視（テキストが見えやすく） */
-        background-position: center top;
+        background-size: contain;
     }
 }
 
@@ -129,13 +128,21 @@ body {
 }
 
 .hero-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Fredoka One', cursive;
     font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 900;
-    color: #FF6B9D;
+    font-weight: 400;
+    color: #FFDE00;  /* マリオの黄色 */
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    letter-spacing: 2px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    /* マリオ風の輪郭と影 */
+    text-shadow:
+        -3px -3px 0 #E52521,  /* 赤い輪郭 左上 */
+        3px -3px 0 #E52521,   /* 赤い輪郭 右上 */
+        -3px 3px 0 #E52521,   /* 赤い輪郭 左下 */
+        3px 3px 0 #E52521,    /* 赤い輪郭 右下 */
+        5px 5px 10px rgba(0, 0, 0, 0.5);  /* 影 */
+    -webkit-text-stroke: 1px #E52521;  /* Webkit用の輪郭 */
 }
 
 .hero-subtitle {
