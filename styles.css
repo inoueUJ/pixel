@@ -30,14 +30,23 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    /* 背景画像設定 - 縦横比に関係なく画面全体にフィット */
+    /* 背景画像設定 - 画面全体に表示（余白なし） */
     background-image: url('../images/hero-background.jpg');
-    background-size: cover;          /* 画面全体をカバー（縦横比維持） */
-    background-position: center;     /* 中央配置 */
+    background-size: cover;          /* 画面全体をカバー */
+    background-position: center center;     /* 中央配置 */
     background-repeat: no-repeat;    /* 繰り返しなし */
-    /* フォールバック用グラデーション（画像が読み込まれない場合） */
+    background-attachment: scroll;   /* スクロール時に背景も動く */
+    /* フォールバック用（画像が読み込まれない場合） */
     background-color: #FFE5E5;
     overflow: hidden;
+}
+
+/* タブレット・PC用の調整 */
+@media (min-width: 768px) and (orientation: landscape) {
+    .hero-section {
+        /* 横長画面では上部重視（テキストが見えやすく） */
+        background-position: center top;
+    }
 }
 
 .balloons-container {
